@@ -93,11 +93,22 @@ li .hijos-directos>b {
 
 .selectores-atributos a[class~="cursos"] {
     background-color: midnightblue
-} 
-/*
+}  
 
+/*
+da color al fondo de la etiqueta "a" en la calse llamada cursos
 */
 
 .selectores-atributos a[class|="menu"] {
     font-style: italic;
 }
+
+/*
+dar farmato cursiva a la etiqueta "a" en la calse llamada menu
+*/
+
+.selector-universal{
+    font-size: 24px;
+}
+
+/*aplica estos formatos a todos los elementos dentro de la clase form-pseudoclases*/ 
