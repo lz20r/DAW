@@ -107,8 +107,11 @@ da color al fondo de la etiqueta "a" en la calse llamada cursos
 dar farmato cursiva a la etiqueta "a" en la calse llamada menu
 */
 
-.selector-universal{
+.selector-universal{ 
     font-size: 24px;
 }
 
 /*aplica estos formatos a todos los elementos dentro de la clase form-pseudoclases*/ 
+.form-pseudoclases{
+    
+}
