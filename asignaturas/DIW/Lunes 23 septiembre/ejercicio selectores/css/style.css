@@ -67,7 +67,7 @@ li .hijos-directos>b {
 
 /* 3) PARTE DE SELECTORES DE ATRIBUTO */
 /* Todos los enlaces con el atributo href en verde */
-[href] {
+.selectores-atributos a[href] {
     color: green;
 }
 

@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    background-color: black;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+#logo img {
+    width: 40px;
+    height: 40px;
+}
+
+#logo h1 {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+}
+
+.nav-items a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-items a:hover {
+    text-decoration: underline;
+}
+
+nav button {
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: #ff8c00;
+}
+
+section {
+    padding: 100px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+.back-to-top-btn {
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.back-to-top-btn:hover {
+    background-color: #ff8c00;
+}
+
+.sticky-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+.sticky-btn:hover {
+    background-color: #ff8c00;
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav button {
+        margin-top: 20px;
+    }
+
+    section {
+        padding: 50px;
+        text-align: center;
+    }
+
+    footer {
+        padding: 10px 0;
+    }
+
+    .social-icons a {
+        font-size: 15px;
+    }
+
+    .sticky-btn {
+        display: block;
+    }
+
+    .sticky-btn:hover {
+        background-color: #ff8c00;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    section {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    nav button {
+        padding: 10px 15px;
+    }
+
+    .social-icons a {
+        font-size: 10px;
+    }
+
+    .sticky-btn {
+        padding: 10px 15px;
+    }
+}
