@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.caja {
+  width: 300px;
+  height: 300px;
+}
+.uno {
+  font-size: 30px;
+}
+.contenedor {
+  display: flex;
+  /*inline-flex*/
+  flex-direction: row;
+  /*row-reverse row*/
+  /*column-reverse column*/
+  flex-wrap: wrap;
+  /*wrap     no-wrap*/
+  width: 90%;
+  align-items: baseline;
+  /*start flex-end center*/
+  justify-content: space-around;
+  /*flex-start  flex-end center space-evenly  space-around space-between*/
+  max-width: 600px;
+  height: 500px;
+  outline: 2px solid crimson; /*Borde sin ocupar espacio*/
+  margin: 20px auto;
+}
+.item {
+  width: 100px;
+  height: 100px;
+  background: darkcyan;
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  /*line-height: 100px; centar verticalmente un truco*/
+}
+.uno {
+  background: cornflowerblue;
+}
+.dos {
+  background: coral;
+}
+.tres {
+  background: blueviolet;
+}
+.cuatro {
+  background: darkcyan;
+}
