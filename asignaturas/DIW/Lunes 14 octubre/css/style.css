@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    justify-content: justify;
+    align-items: justify;
+    align-content: justify;
+    flex-flow: row wrap;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid rgb(0, 162, 255);
+    gap: 10px;
+}
+
