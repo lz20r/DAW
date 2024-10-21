@@ -1,0 +1,51 @@
+/* resetao básico*/
+* {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+/*imagenes les damos el 100%*/
+img {
+  width: 100%;
+  height: auto;
+  width: auto;
+  margin: 20px;
+  border-radius: 20px;
+  border: 8px solid rgb(0, 0, 0);
+  box-shadow: 0 20px 20px rgba(65, 65, 65, 0.2);
+}
+
+.fila {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.columna {
+  flex-basis: 70%;
+  padding: 10px;
+  margin: 10px;
+}
+
+/*media queries*/
+@media screen and (max-width: 2200px) {
+  .columna {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .columna {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .columna {
+    flex-basis: 100%;
+  }
+}

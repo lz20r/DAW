@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /*Creamos variables para los colores*/
+    --color-black: #212121;
+    --color-white: #FFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/**/
+.article section img {
+    width: 300px;
+    height: auto;
+    border-radius: 300px;
+}
+/* flexbox y centramos los cosas*/
+.article section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;/*para que todas las secciones ocupen toda la pantalla*/
+}
+/*Colocamos el menú*/
+.header nav {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.header nav a {
+    border: 3px solid #000;
+    border-radius: 50%;
+    display: block;
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+.header nav a:nth-child(1), .article #pagina-uno {
+    background-color: #f4eeb4;
+}
+
+.header nav a:nth-child(2), .article #pagina-dos {
+    background-color: #acc4a0;
+}
+
+.header nav a:nth-child(3), .article #pagina-tres {
+    background-color: #55897d;
+}
+
+.header nav a:nth-child(4), .article #pagina-cuatro {
+    background-color: #425454;
+}
+
+.header nav a:nth-child(5), .article #pagina-cinco {
+    background-color: #7b564e;
+}
+
+/*My Footer*/
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 99;
+    position: fixed;
+    width: 500px;
+    height: 200px;
+    top: 85%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -250px;    
+  }
+  
+  .footer a{
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-align: center;
+    margin: .5rem;
+    color: var(--color-white);
+    background-color: var(--color-black);
+    padding:.5rem .73rem;
+    border-radius: 25%;
+  }
