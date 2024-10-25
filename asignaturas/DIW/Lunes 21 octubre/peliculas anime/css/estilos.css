@@ -7,6 +7,39 @@ body {
   padding: 0px;
 }
 
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px #000;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+img:hover {
+  transform: scale(1.0);
+  box-shadow: 0 0 20px #000;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  opacity: 0.8;
+  filter: grayscale(1);
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #000;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  opacity: 0.8;
+  filter: grayscale(1);
+  gap: 10px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #000;
+  transition: all 0.3s ease-in-out;
+}
 
 .fila {
   width: 100%;
