@@ -1,0 +1,448 @@
+@font-face {
+    font-family: 'Magic Legends';
+    src: url("../fonts/October Crow.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'October Crow';
+    src: url("../fonts/October Crow.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'October Crow', sans-serif;
+    letter-spacing: 1.5px;
+    background-color: #121212;
+    color: #f0f0f0;
+    padding-bottom: 80px;
+}
+
+header {
+    background-color: #8B4513;
+    padding: 20px;
+    border-bottom: 3px solid #ffcc00;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+nav {
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #ffcc00;
+    margin-left: 20px;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.menu a:hover {
+    color: #ff6347;
+    transform: scale(1.1);
+}
+
+main {
+    padding: 20px;
+}
+
+/* Inicio */
+#inicio {
+    font-family: 'Misty Graveyard';
+    text-align: center;
+    font-size: 0.7em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    margin-bottom: 30px;
+    color: #ffa600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#inicio h1 {
+    font-family: 'Magic Legends', cursive;
+    font-size: 6em;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+#inicio p {
+    font-family: 'Misty Graveyard', cursive;
+    font-size: 1.5em;
+    text-align: center;
+    text-align: justify;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #ffcc00;
+}
+
+#invitacion img {
+    width: 40%;
+}
+
+#invitacion {
+    color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px dashed #ffcc00;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.8);
+}
+
+#invitacion h1 {
+    font-family: 'Magic Legends', cursive;
+    font-size: 5em;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    margin-bottom: 20px;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ffa600;
+    transform: scale(1.1);
+}
+
+button a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Carrusel */
+.carrusel {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.carrusel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carrusel-image {
+    min-width: 100%;
+}
+
+.carrusel-images img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#slide1:checked~.carrusel-images {
+    transform: translateX(0);
+}
+
+#slide2:checked~.carrusel-images {
+    transform: translateX(-100%);
+}
+
+#slide3:checked~.carrusel-images {
+    transform: translateX(-200%);
+}
+
+#slide4:checked~.carrusel-images {
+    transform: translateX(-300%);
+}
+
+#slide5:checked~.carrusel-images {
+    transform: translateX(-400%);
+}
+
+.carrusel-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.control {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.control:hover {
+    background-color: #ff6347;
+}
+
+h1 {
+    font-family: 'Magic Legends', cursive;
+    font-size: 2em;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    margin-bottom: 20px;
+}
+
+
+#fiesta {
+    background-color: #e74c3c;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px dashed #ffcc00;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+#fiesta h1 {
+    font-family: 'Magic Legends', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+#fiesta p {
+    font-family: 'Misty Graveyard', cursive;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#subasta {
+    background-color: #e74c3c;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px dashed #ffcc00;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+#subasta h1 {
+    font-family: 'Magic Legends', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#subasta p {
+    font-family: 'Misty Graveyard', cursive;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Contacto */
+#contacto {
+    margin-top: 20px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #ff7605ce;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.contact-container h2 {
+    text-align: center;
+    color: #ffcc00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    font-family: 'Magic Legends', cursive;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contact-container input,
+.contact-container button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 2px solid #8B4513;
+    width: 300px;
+    font-size: 1.2em;
+    color: #8B4513;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.3s;
+    outline: none;
+    text-align: center;
+    font-family: 'Magic Legends', cursive;
+    text-shadow: 2px 2px 5px rgba(255, 5, 5, 0.9);
+    background-color: #ffcc00;
+    border: 2px solid #8B4513;
+}
+
+.contact-container textarea {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 2px solid #8B4513;
+    width: 300px;
+    font-size: 1.2em;
+    color: #8B4513;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.3s;
+    outline: none;
+    text-align: center;
+    font-family: 'Magic Legends', cursive;
+    text-shadow: 2px 2px 5px rgba(212, 15, 15, 0.9);
+    background-color: #ffcc00;
+    border: 2px solid #8B4513;
+}
+
+.contact-container button {
+    background-color: #8B4513;
+    color: rgb(255, 174, 0);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-container button:hover {
+    background-color: #000000;
+    transform: scale(1.05);
+}
+
+.contact-container button:active {
+    transform: scale(0.95);
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border-color: #ff6347;
+}
+
+.contact-container input::placeholder,
+.contact-container textarea::placeholder {
+    color: #8B4513;
+}
+
+.map-container {
+    margin-top: 20px;
+}
+
+.map-container iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    border: 2px solid #8B4513;
+    transition: border-color 0.3s;
+    width: 500px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+.map-container iframe:focus {
+    border-color: #ff6347;
+}
+
+/* Pie de página */
+footer {
+    background: linear-gradient(135deg, #8B4513, #ffcc00);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    border-top: 5px solid #ff6347;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    font-size: 1.2em;
+    margin: 5px 0;
+    transition: color 0.3s;
+}
+
+footer p:hover {
+    color: #f0f0f0;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+footer:hover {
+    animation: pulse 1s infinite;
+}
+
+
+/* Responsive */
