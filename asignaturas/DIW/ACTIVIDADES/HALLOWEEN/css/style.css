@@ -117,25 +117,21 @@ main {
     color: #ffcc00;
 }
 
-#invitacion img {
-    width: 40%;
-}
-
-#invitacion {
-    color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
+#inicio img {
+    width: 300px;
+    height: auto;
     border: 2px dashed #ffcc00;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.8);
-}
-
-#invitacion h1 {
-    font-family: 'Magic Legends', cursive;
-    font-size: 5em;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    padding: 9px;
     margin-bottom: 20px;
 }
+
+#invitacion :hover {
+    transform: scale(2.1);
+}
+
+
 
 button {
     margin-top: 20px;
@@ -446,3 +442,21 @@ footer:hover {
 
 
 /* Responsive */
+
+@media (max-width: 1024px) {
+
+    html,
+    body {
+        width: 100%;
+    }
+
+    #inicio img {
+        width: 22%;
+    }
+}
+
+@media (max-width: 768px) {
+    #inicio img {
+        width: 30%;
+    }
+}

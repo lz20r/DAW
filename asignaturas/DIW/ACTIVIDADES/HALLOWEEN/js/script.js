@@ -1,8 +1,9 @@
 function toggleMenu() {
 // onclick="toggleMenu()"
-    
-    var menuToggle = document.querySelector('.menu-icon');
-    var menu = document.querySelector('.menu');
-    menuToggle.classList.toggle('active');
-    menu.classList.toggle('active');
+    var menu = document.getElementById("menu");
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
 }
