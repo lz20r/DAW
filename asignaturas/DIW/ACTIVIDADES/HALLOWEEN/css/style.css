@@ -130,6 +130,7 @@ main {
 }
 
 #inicio img {
+    max-width: 100%;
     width: 300px;
     height: auto;
     border: 2px dashed #ffcc00;
@@ -146,6 +147,17 @@ main {
 #galeria {
     font-size: 2rem;
     margin-top: 20px;
+}
+
+#galeria img {
+    max-width: 100%;
+    width: 900px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    cursor: pointer;
 }
 
 #galeria h2 {
