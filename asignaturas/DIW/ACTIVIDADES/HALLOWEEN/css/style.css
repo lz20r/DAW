@@ -630,10 +630,40 @@ footer:hover {
     html,
     body {
         width: 100%;
+        overflow-x: hidden;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    nav {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    #menu-icon {
+        display: block;
+
     }
 
     #inicio img {
         width: 22%;
+    }
+
+    #inicio h1 {
+        font-size: 4em;
+    }
+
+    #inicio p {
+        width: 100%;
     }
 }
 

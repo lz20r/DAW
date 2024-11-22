@@ -1,0 +1,93 @@
+/* 
+Unidades de Medida
+  1) Absolutas (Su valor no cambia, son unidades del mundo real)
+    pc, cm, mm, in, Q
+    pt (1/72in) IN Pulgada
+    px (1/96in)
+  2) Relativas (Su valor es relativo a un contexto)
+    em, rem, ex, ch - al tamaño de la fuente
+      em - basada en la anchura de la "m" de la fuente del elemento(elemento padre)
+      rem -  basada en la anchura de la "m" de la fuente del elemento raíz (html)
+      
+    % - al tamaño del contenedor
+       vw, vh, vmin, vmax - al tamaño del viewport
+      vw - ancho del viewport van de 1 a 100
+      vh - alto del viewport van de 1 a 100
+      ch - vmin - vmax - ex 
+
+  Conversiones entre unidades - http://pxtoem.com/
+*/
+html {
+  box-sizing: border-box;
+  font-size: 48px;
+  /*font-size: 32px;
+  font-size: 16px;*/
+  background-color: black;
+  }
+body {
+  background-color: blanchedalmond;
+  /* margin: 0; */
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+/* px (1/96in)Unidades ABSOLUTAS El valor por defecto del tamaño de la letra de los navegadores 
+es fuente es 16px si no lo ponemos es eso
+No es recomendable px por el diseño responsive */
+.pixels {
+  background-color: cadetblue;
+  width: 500px;
+  height: 400px;
+  padding: 20px;
+  font-size: 32px;
+  border: 5px solid rebeccapurple;
+}
+/* Relativa em    
+   em, rem, ex, ch 
+   em  -  basado en la anchura de la letra m.
+    Por defecto un em son 16px. 
+   Se basa en el tamaño del font-size del padre.  */
+   .ems {
+  background-color: cadetblue;
+  font-size: 24px; /*1,5 rem*/
+  padding: 1em 0.5em;/* */
+  border: 5px solid rebeccapurple;
+}
+/* Relativa em    
+   em, rem, ex, ch - al tamaño de la fuente (TAMAÑO DE LETRA DEL PADRE)
+      em - basada en la anchura de la "m" de la fuente del elemento (ES EL MÁS ANCHO)
+     POR DEFECTO 16PX ES UN EM */
+.ems {
+  background-color: cadetblue;
+  font-size: 24px; /*1,5 rem*/
+  padding: 1em 0.5em;/*ahora son 24px */
+  border: 5px solid rebeccapurple;
+}
+.em-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5em; /* Las medidas ahora son sobre su font size 24*/
+  padding: 1em;
+  font-size: 2em;/* ahora como el padre es 24px, esto se queda a 48px*/
+}
+/* Relativa em    
+   em, rem, ex, ch - al tamaño de la fuente    
+      rem -  basada en la anchura de la "m" de la fuente del elemento raíz (html)
+
+*/.rems {
+  background-color: cadetblue;
+  font-size: 24px;
+  padding: 1rem 0.5rem; 
+  border: 5px solid rebeccapurple;
+}
+.rem-child {
+  background-color: salmon;
+  border: thick solid beige;
+  margin: 0.5rem;
+  padding: 1rem;
+  font-size: 2rem;/*No tiene que ver el padre , seria el dle html 16*2 */
+}
+
+
