@@ -1,5 +1,5 @@
 <?php
-include '../include/conexion.php';
+include '../conexion.php';
 
 $successMessage = $errorMessage = '';
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($stmt->execute()) {
                 if ($stmt->affected_rows > 0) {
                     $successMessage = "Coche eliminado correctamente.";
-                    header("Location: ../flota.php");
+                    header("Location: ../../admin/modelos.php" . "?id=" . $carId);
                     exit();
                 } else {
                     $errorMessage = "No se encontró ningún coche con el ID proporcionado.";
@@ -51,14 +51,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h2>Eliminar Coche de la Flota</h2>
 
         <?php if ($successMessage): ?>
-        <div class="alert alert-success">
-            <?php echo $successMessage; ?>
-        </div>
+            <div class="alert alert-success">
+                <?php echo $successMessage; ?>
+            </div>
         <?php endif; ?>
         <?php if ($errorMessage): ?>
-        <div class="alert alert-danger">
-            <?php echo $errorMessage; ?>
-        </div>
+            <div class="alert alert-danger">
+                <?php echo $errorMessage; ?>
+            </div>
         <?php endif; ?>
 
         <form action="delete.php" method="POST">
@@ -67,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="number" class="form-control" id="id" name="id" required>
             </div>
             <button type="submit" class="btn btn-danger">Eliminar Coche</button>
+            <a href="../../admin/modelos.php" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 
