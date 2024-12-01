@@ -59,8 +59,14 @@ if ($marca) {
                                 <div class="card-content">
                                     <h5 class="card-title"><?php echo htmlspecialchars($row['marca']); ?></h5>
                                     <h6 class="card-subtitle"><?php echo htmlspecialchars($row['modelo']); ?></h6>
-                                    <a href="calcular_alquiler.php?id=<?php echo $row['id']; ?>"
-                                        class="btn btn-calculate">Calcular alquiler</a>
+                                    <!-- Botón para abrir modal -->
+                                    <a href="#"
+                                        class="btn btn-calculate"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#alquilerModal"
+                                        onclick="cargarDatosModal(<?php echo htmlspecialchars(json_encode($row)); ?>)">
+                                        Calcular alquiler
+                                    </a>
                                     <a href="ver_ficha.php?id=<?php echo $row['id']; ?>" class="btn btn-view">Ver ficha</a>
                                 </div>
                             </div>
@@ -73,12 +79,14 @@ if ($marca) {
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <?php include '../include/templates/modal.php'; ?>
+
     <script src="../assests/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
 
-<?php
-$mysqli->close();
-?>
+<?php $mysqli->close(); ?>
