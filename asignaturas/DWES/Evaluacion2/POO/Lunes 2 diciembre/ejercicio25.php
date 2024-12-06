@@ -129,7 +129,7 @@
                     $persona1->envejecer();
                 }
                 echo "<h3 class='section-title'>Después de Envejecer</h3>";
-                echo "<p>Ahora tiene<span class='highlight'>" . $persona1->getEdad() . " años</span>.</p>";
+                echo "<p>Ahora tiene <span class='highlight'>" . $persona1->getEdad() . " años</span>.</p>";
 
                 for ($i = 0; $i < 2; $i++) {
                     $persona1->menguar();

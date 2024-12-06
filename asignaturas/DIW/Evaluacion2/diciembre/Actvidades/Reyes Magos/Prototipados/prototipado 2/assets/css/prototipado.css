@@ -1,0 +1,243 @@
+body {
+	margin: 0;
+	height: 100vh;
+}
+
+.contenedor {
+	width: 100%;
+	max-width: 1200px;
+	max-height: max-content;
+	margin: 10px auto;
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(6, minmax(100px, auto));
+	grid-template-areas:
+		"cabecera cabecera cabecera cabecera"
+		"contenido contenido contenido sidebar"
+		"contenido contenido contenido sidebar"
+		"contenido contenido contenido sidebar"
+		"widget1 widget1 widget1 widget1"
+		"widget2 widget2 widget2 widget2"
+		"footer footer footer footer";
+}
+
+.contenedor>div,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .contenido-1,
+.contenedor .contenido-2,
+.contenedor .contenido-3,
+.contenedor .contenido-4,
+.contenedor .contenido-5,
+.contenedor .contenido-6,
+.contenedor .contenido-7,
+.contenedor .contenido-8,
+.contenedor .contenido-9,
+.contenedor .contenido-10,
+.contenedor .sidebar,
+.contenedor .widget-1,
+.contenedor .widget-2,
+.contenedor .footer {
+	padding: 40px;
+	border-radius: 4px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.header::before,
+.contenido::before,
+.sidebar::before,
+.footer::before,
+.widget-1::before,
+.widget-2::before,
+.contenido-1::before,
+.contenido-2::before,
+.contenido-3::before,
+.contenido-4::before,
+.contenido-5::before,
+.contenido-6::before,
+.contenido-7::before,
+.contenido-8::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: repeating-linear-gradient(45deg,
+			#000,
+			#000 10px,
+			#fff 10px,
+			#fff 20px);
+	opacity: 0.1;
+	z-index: 1;
+}
+
+.header,
+.contenido,
+.sidebar,
+.footer,
+.widget-1,
+.widget-2,
+.contenido-1,
+.contenido-2,
+.contenido-3,
+.contenido-4,
+.contenido-5,
+.contenido-6,
+.contenido-7,
+.contenido-8 {
+	position: relative;
+	z-index: 2;
+}
+
+.header {
+	grid-area: cabecera;
+	background-color: #a8bac0;
+	border: 3px solid #000;
+	display: grid;
+	gap: 10px;
+}
+
+.contenido {
+	grid-area: contenido;
+	background-color: #c3cbd3;
+	border: #000000 3px solid;
+	display: grid;
+	gap: 10px;
+	height: 800px;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-columns: auto auto;
+	grid-template-areas:
+		"contenido-1 contenido-2"
+		"contenido-3 contenido-4"
+		"contenido-5 contenido-6"
+		"contenido-7 contenido-8";
+}
+
+.contenido-1 {
+	grid-area: contenido-1;
+	background-color: #adb08f;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-2 {
+	grid-area: contenido-2;
+	background-color: #cfafaf;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-3 {
+	grid-area: contenido-3;
+	background-color: #dfdcc0;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-4 {
+	grid-area: contenido-4;
+	background-color: #c0dfd7;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-5 {
+	grid-area: contenido-5;
+	background-color: #dfced6;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-6 {
+	grid-area: contenido-6;
+	background-color: #bfb6ca;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-7 {
+	grid-area: contenido-7;
+	background-color: #a6b2b4;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-8 {
+	grid-area: contenido-8;
+	background-color: #b3c4c4;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.sidebar {
+	grid-area: sidebar;
+	background-color: #a8bac0;
+	border: 3px solid #000;
+	display: grid;
+	gap: 10px;
+	grid-template-rows: repeat(3, auto);
+	grid-template-areas:
+		"widget1"
+		"widget2"
+		"footer";
+}
+
+.widget-1 {
+	grid-area: widget1;
+	background-color: #b9b9a8;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.widget-2 {
+	grid-area: widget2;
+	background-color: #d2d3c3;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.footer {
+	grid-area: footer;
+	margin-bottom: 10px;
+	background-color: #a8bac0;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+	.contenedor {
+		grid-template-areas:
+			"cabecera cabecera cabecera cabecera"
+			"contenido contenido contenido contenido"
+			"sidebar sidebar sidebar sidebar"
+			"widget1 widget1 widget1 widget1"
+			"widget2 widget2 widget2 widget2"
+			"footer footer footer footer";
+	}
+}
