@@ -1,7 +1,12 @@
-body { 
-	margin: 0; 
-	height: 100vh;
-	font-family: 'Roboto', sans-serif;
+
+
+body {
+	font-family: 'Christmas Classica', sans-serif;
+}
+
+body {
+	margin: 0;
+	height: 100vh;  
 }
 
 .contenedor {
@@ -38,7 +43,7 @@ body {
 .contenedor .sidebar,
 .contenedor .widget-1,
 .contenedor .widget-2,
-.contenedor .footer { 
+.contenedor .footer {
 	color: #000000;
 	padding: 40px;
 	border-radius: 4px;
@@ -47,7 +52,7 @@ body {
 
 .header {
 	grid-area: cabecera;
-	
+
 }
 
 .contenido {
@@ -55,9 +60,9 @@ body {
 	display: grid;
 	gap: 10px;
 	height: 800px;
-	grid-template-columns: repeat(7, 1fr); 
+	grid-template-columns: repeat(7, 1fr);
 	grid-template-columns: auto auto;
-	grid-template-areas: 
+	grid-template-areas:
 		"contenido-1 contenido-2"
 		"contenido-3 contenido-4"
 		"contenido-5 contenido-6"
@@ -127,7 +132,8 @@ body {
 	padding: 10px;
 	border-radius: 4px;
 	text-align: center;
-} 
+}
+
 .sidebar {
 	grid-area: sidebar;
 }
@@ -143,7 +149,8 @@ body {
 .footer {
 	grid-area: footer;
 	margin-bottom: 10px;
-} 
+}
+
 @media screen and (max-width: 768px) {
 	.contenedor {
 		grid-template-areas:
@@ -153,4 +160,4 @@ body {
 			"widget1 widget2"
 			"footer footer";
 	}
-} 
+}
