@@ -2,37 +2,48 @@
 include '../conexion.php';
 
 $successMessage = $errorMessage = '';
+$id = $_GET['id'] ?? null;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $carId = $_POST['id'] ?? '';
+if ($id === null) {
+    $errorMessage = "ID de coche no proporcionado.";
+} else {
+    // Obtener datos del coche para confirmación
+    $sql = "SELECT * FROM coches WHERE id = ?";
+    $stmt = $mysqli->prepare($sql);
 
-    if (empty($carId)) {
-        $errorMessage = "Debe proporcionar un ID de coche para eliminar.";
-    } else {
-        $sql = "DELETE FROM coches WHERE id = ?";
-        $stmt = $mysqli->prepare($sql);
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $car = $result->fetch_assoc();
+        $stmt->close();
 
-        if ($stmt === false) {
-            $errorMessage = "Error preparando la consulta: " . $mysqli->error;
-        } else {
-            $stmt->bind_param("i", $carId);
+        if (!$car) {
+            $errorMessage = "Coche no encontrado.";
+        } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Confirmar y proceder con la eliminación
+            $deleteSql = "DELETE FROM coches WHERE id = ?";
+            $deleteStmt = $mysqli->prepare($deleteSql);
 
-            if ($stmt->execute()) {
-                if ($stmt->affected_rows > 0) {
+            if ($deleteStmt) {
+                $deleteStmt->bind_param("i", $id);
+                if ($deleteStmt->execute() && $deleteStmt->affected_rows > 0) {
                     $successMessage = "Coche eliminado correctamente.";
-                    header("Location: ../../admin/modelos.php" . "?id=" . $carId);
+                    header("Location: ../../admin/modelos.php");
                     exit();
                 } else {
-                    $errorMessage = "No se encontró ningún coche con el ID proporcionado.";
+                    $errorMessage = "Error al eliminar el coche.";
                 }
+                $deleteStmt->close();
             } else {
-                $errorMessage = "Error: " . $stmt->error;
+                $errorMessage = "Error al preparar la consulta: " . $mysqli->error;
             }
-            $stmt->close();
         }
+    } else {
+        $errorMessage = "Error al preparar la consulta: " . $mysqli->error;
     }
-    $mysqli->close();
 }
+$mysqli->close();
 ?>
 
 <!DOCTYPE html>
@@ -46,29 +57,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-
     <div class="container mt-5">
-        <h2>Eliminar Coche de la Flota</h2>
+        <h2 class="text-center mb-4">Eliminar Coche</h2>
 
         <?php if ($successMessage): ?>
-            <div class="alert alert-success">
+            <div class="alert alert-success text-center">
                 <?php echo $successMessage; ?>
             </div>
-        <?php endif; ?>
-        <?php if ($errorMessage): ?>
-            <div class="alert alert-danger">
+        <?php elseif ($errorMessage): ?>
+            <div class="alert alert-danger text-center">
                 <?php echo $errorMessage; ?>
             </div>
-        <?php endif; ?>
-
-        <form action="delete.php" method="POST">
-            <div class="form-group">
-                <label for="id">ID del Coche a Eliminar</label>
-                <input type="number" class="form-control" id="id" name="id" required>
+        <?php else: ?>
+            <div class="alert alert-warning text-center">
+                <p>¿Estás seguro de eliminar el coche <?php echo '<strong>' . $car['marca'] . '</strong>'. ' ' . '<strong>' . $car['modelo'] . '</strong>'; ?>?</p>
+                <form method="POST">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <a href="../../admin/modelos.php" class="btn btn-secondary">Cancelar</a>
+                </form>
             </div>
-            <button type="submit" class="btn btn-danger">Eliminar Coche</button>
-            <a href="../../admin/modelos.php" class="btn btn-secondary">Cancelar</a>
-        </form>
+        <?php endif; ?>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

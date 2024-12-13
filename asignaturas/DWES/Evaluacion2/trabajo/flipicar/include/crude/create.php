@@ -1,7 +1,7 @@
 <?php
 include '../conexion.php';
 
-$marca = $modelo =  $kilometros = $color = $precio = $matricula = $kilometros = $foto = '';
+$marca = $modelo = $kilometros = $color = $precio = $foto = $deposito = $kms_incluidos = $costo_km_extra = $gallery = '';
 $successMessage = $errorMessage = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -11,20 +11,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $color = $_POST['color'] ?? '';
     $precio = $_POST['precio'] ?? '';
     $foto = $_POST['foto'] ?? '';
+    $deposito = $_POST['deposito'] ?? '';
+    $kms_incluidos = $_POST['kms_incluidos'] ?? '';
+    $costo_km_extra = $_POST['costo_km_extra'] ?? '';
+    $gallery = $_POST['gallery'] ?? ''; // Galería ingresada en JSON
 
-    if (empty($marca) || empty($modelo) || empty($kilometros) || empty($color) || empty($precio) || empty($foto)) {
-        $errorMessage = "All fields are required!";
+    // Validaciones
+    if (empty($marca) || empty($modelo) || empty($kilometros) || empty($color) || empty($precio) || empty($foto) || empty($deposito) || empty($kms_incluidos) || empty($costo_km_extra) || empty($gallery)) {
+        $errorMessage = "Todos los campos son obligatorios.";
+    } elseif (!is_numeric($kilometros) || !is_numeric($precio) || !is_numeric($deposito) || !is_numeric($kms_incluidos) || !is_numeric($costo_km_extra)) {
+        $errorMessage = "Kilómetros, Precio, Depósito, Kms incluidos y Costo por Km extra deben ser números válidos.";
+    } elseif (!json_decode($gallery)) {
+        $errorMessage = "El formato de la galería debe ser JSON válido.";
     } else {
-        $sql = "INSERT INTO coches (marca, modelo, kilometros, color, precio, foto) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO coches (marca, modelo, kilometros, color, precio, foto, deposito, kms_incluidos, costo_km_extra, gallery) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $mysqli->prepare($sql);
 
         if ($stmt === false) {
-            $errorMessage = "Error preparing the query: " . $mysqli->error;
+            $errorMessage = "Error preparando la consulta: " . $mysqli->error;
         } else {
-            $stmt->bind_param("ssssss", $marca, $modelo, $kilometros, $color, $precio, $foto);
+            $stmt->bind_param("ssssssddds", $marca, $modelo, $kilometros, $color, $precio, $foto, $deposito, $kms_incluidos, $costo_km_extra, $gallery);
 
             if ($stmt->execute()) {
-                $successMessage = "Nuevo coche añadido correctamente";
+                $successMessage = "Nuevo coche añadido correctamente con galería.";
                 header("Location:../../../../admin/modelos.php");
                 exit();
             } else {
@@ -36,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     $mysqli->close();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="kilometros">Kilometros</label>
+                <label for="kilometros">Kilómetros</label>
                 <input type="text" class="form-control" id="kilometros" name="kilometros"
                     value="<?php echo htmlspecialchars($kilometros); ?>" required>
             </div>
@@ -97,9 +105,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="form-group">
-                <label for="imagen">Imagen URL</label>
+                <label for="deposito">Depósito</label>
+                <input type="text" class="form-control" id="deposito" name="deposito"
+                    value="<?php echo htmlspecialchars($deposito); ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="kms_incluidos">Kms Incluidos</label>
+                <input type="text" class="form-control" id="kms_incluidos" name="kms_incluidos"
+                    value="<?php echo htmlspecialchars($kms_incluidos); ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="costo_km_extra">Costo por Km Extra</label>
+                <input type="text" class="form-control" id="costo_km_extra" name="costo_km_extra"
+                    value="<?php echo htmlspecialchars($costo_km_extra); ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="foto">Imagen URL</label>
                 <input type="text" class="form-control" id="foto" name="foto"
                     value="<?php echo htmlspecialchars($foto); ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gallery">Galería (JSON)</label>
+                <textarea class="form-control" id="gallery" name="gallery" rows="5" required><?php echo htmlspecialchars($gallery); ?></textarea>
+                <small class="form-text text-muted">
+                    Ejemplo: [{"image_url": "https://example.com/image1.jpg", "alt_text": "Vista frontal"}, {"image_url": "https://example.com/image2.jpg", "alt_text": "Vista trasera"}]
+                </small>
             </div>
 
             <button type="submit" class="btn btn-primary">Agregar Coche</button>

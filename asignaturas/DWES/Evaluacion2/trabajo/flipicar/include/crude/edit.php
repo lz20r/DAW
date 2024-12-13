@@ -1,12 +1,10 @@
 <?php
 include '../conexion.php';
 
-// Inicializar variables
 $id = $_GET['id'] ?? null;
-$marca = $modelo = $kilometros = $color = $precio = $foto = '';
+$marca = $modelo = $kilometros = $color = $precio = $foto = $deposito = $kms_incluidos = $costo_km_extra = $gallery = '';
 $successMessage = $errorMessage = '';
 
-// Verificar si el ID está presente y obtener datos actuales
 if ($id === null) {
     $errorMessage = "ID de coche no proporcionado";
 } else {
@@ -24,20 +22,22 @@ if ($id === null) {
         if (!$car) {
             $errorMessage = "Coche no encontrado";
         } else {
-            // Asignar valores actuales del coche al formulario
             $marca = $car['marca'];
             $modelo = $car['modelo'];
             $kilometros = $car['kilometros'];
             $color = $car['color'];
             $precio = $car['precio'];
             $foto = $car['foto'];
+            $deposito = $car['deposito'];
+            $kms_incluidos = $car['kms_incluidos'];
+            $costo_km_extra = $car['costo_km_extra'];
+            $gallery = $car['gallery'];
         }
 
         $stmt->close();
     }
 }
 
-// Actualizar datos si se envía el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($errorMessage)) {
     $marca = $_POST['marca'] ?? '';
     $modelo = $_POST['modelo'] ?? '';
@@ -45,20 +45,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($errorMessage)) {
     $color = $_POST['color'] ?? '';
     $precio = $_POST['precio'] ?? '';
     $foto = $_POST['foto'] ?? '';
+    $deposito = $_POST['deposito'] ?? '';
+    $kms_incluidos = $_POST['kms_incluidos'] ?? '';
+    $costo_km_extra = $_POST['costo_km_extra'] ?? '';
+    $gallery = $_POST['gallery'] ?? '';
 
-    if (empty($marca) || empty($modelo) || empty($kilometros) || empty($color) || empty($precio) || empty($foto)) {
+    if (empty($marca) || empty($modelo) || empty($kilometros) || empty($color) || empty($precio) || empty($foto) || empty($deposito) || empty($kms_incluidos) || empty($costo_km_extra)) {
         $errorMessage = "Todos los campos son obligatorios.";
+    } elseif (!is_numeric($kilometros) || !is_numeric($precio) || !is_numeric($deposito) || !is_numeric($kms_incluidos) || !is_numeric($costo_km_extra)) {
+        $errorMessage = "Kilómetros, Precio, Depósito, Kms incluidos y Costo por Km extra deben ser números válidos.";
+    } elseif (!json_decode($gallery)) {
+        $errorMessage = "El formato de la galería debe ser JSON válido.";
     } else {
-        $sql = "UPDATE coches SET marca = ?, modelo = ?, kilometros = ?, color = ?, precio = ?, foto = ? WHERE id = ?";
+        $sql = "UPDATE coches SET marca = ?, modelo = ?, kilometros = ?, color = ?, precio = ?, foto = ?, deposito = ?, kms_incluidos = ?, costo_km_extra = ?, gallery = ? WHERE id = ?";
         $stmt = $mysqli->prepare($sql);
 
         if ($stmt === false) {
             $errorMessage = "Error al preparar la consulta: " . $mysqli->error;
         } else {
-            $stmt->bind_param("ssssssi", $marca, $modelo, $kilometros, $color, $precio, $foto, $id);
-
+            $stmt->bind_param("sssssssddsi", $marca, $modelo, $kilometros, $color, $precio, $foto, $deposito, $kms_incluidos, $costo_km_extra, $gallery, $id);
+            
             if ($stmt->execute()) {
-                $successMessage = "Coche actualizado correctamente";
+                $successMessage = "Coche actualizado correctamente.";
                 header("Location: ../../admin/modelos.php");
                 exit();
             } else {
@@ -71,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($errorMessage)) {
 }
 $mysqli->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -86,56 +95,77 @@ $mysqli->close();
     <div class="container mt-5">
         <h2 class="text-center mb-4">Editar Coche</h2>
 
-        <!-- Mostrar mensajes de éxito o error -->
         <?php if ($successMessage): ?>
-            <div class="alert alert-success text-center"><?php echo $successMessage; ?></div>
+            <div class="alert alert-success text-center">
+                <?php echo $successMessage; ?>
+            </div>
         <?php elseif ($errorMessage): ?>
-            <div class="alert alert-danger text-center"><?php echo $errorMessage; ?></div>
+            <div class="alert alert-danger text-center">
+                <?php echo $errorMessage; ?>
+            </div>
         <?php endif; ?>
 
         <?php if (!$errorMessage): ?>
-            <!-- Formulario para editar el coche -->
             <form action="edit.php?id=<?php echo $id; ?>" method="POST" class="p-4 border rounded bg-light shadow-sm">
                 <div class="form-group">
                     <label for="marca">Marca</label>
-                    <input type="text" class="form-control" id="marca" name="marca"
-                        value="<?php echo htmlspecialchars($marca); ?>" required>
+                    <input type="text" class="form-control" id="marca" name="marca" value="<?php echo htmlspecialchars($marca); ?>" required>
                 </div>
 
                 <div class="form-group">
                     <label for="modelo">Modelo</label>
-                    <input type="text" class="form-control" id="modelo" name="modelo"
-                        value="<?php echo htmlspecialchars($modelo); ?>" required>
+                    <input type="text" class="form-control" id="modelo" name="modelo" value="<?php echo htmlspecialchars($modelo); ?>" required>
                 </div>
 
                 <div class="form-group">
                     <label for="kilometros">Kilómetros</label>
-                    <input type="text" class="form-control" id="kilometros" name="kilometros"
-                        value="<?php echo htmlspecialchars($kilometros); ?>" required>
+                    <input type="text" class="form-control" id="kilometros" name="kilometros" value="<?php echo htmlspecialchars($kilometros); ?>" required>
                 </div>
 
                 <div class="form-group">
                     <label for="color">Color</label>
-                    <input type="text" class="form-control" id="color" name="color"
-                        value="<?php echo htmlspecialchars($color); ?>" required>
+                    <input type="text" class="form-control" id="color" name="color" value="<?php echo htmlspecialchars($color); ?>" required>
                 </div>
 
                 <div class="form-group">
                     <label for="precio">Precio</label>
-                    <input type="text" class="form-control" id="precio" name="precio"
-                        value="<?php echo htmlspecialchars($precio); ?>" required>
+                    <input type="text" class="form-control" id="precio" name="precio" value="<?php echo htmlspecialchars($precio); ?>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="deposito">Depósito</label>
+                    <input type="text" class="form-control" id="deposito" name="deposito" value="<?php echo htmlspecialchars($deposito); ?>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="kms_incluidos">Kms Incluidos</label>
+                    <input type="text" class="form-control" id="kms_incluidos" name="kms_incluidos" value="<?php echo htmlspecialchars($kms_incluidos); ?>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="costo_km_extra">Costo por Km Extra</label>
+                    <input type="text" class="form-control" id="costo_km_extra" name="costo_km_extra" value="<?php echo htmlspecialchars($costo_km_extra); ?>" required>
                 </div>
 
                 <div class="form-group">
                     <label for="foto">Imagen URL</label>
-                    <input type="text" class="form-control" id="foto" name="foto"
-                        value="<?php echo htmlspecialchars($foto); ?>" required>
+                    <input type="text" class="form-control" id="foto" name="foto" value="<?php echo htmlspecialchars($foto); ?>" required>
                 </div>
 
+                <div class="form-group">
+                    <label for="gallery">Galería (JSON)</label>
+                    <textarea class="form-control" id="gallery" name="gallery" rows="5" required><?php echo htmlspecialchars($gallery); ?></textarea>
+                    <small class="form-text text-muted">
+                        Ejemplo: [{"image_url": "https://example.com/image1.jpg", "alt_text": "Vista frontal"}, {"image_url": "https://example.com/image2.jpg", "alt_text": "Vista trasera"}]
+                    </small>
+                </div>
+
+
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary">Editar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                     <a href="../../admin/modelos.php" class="btn btn-secondary">Cancelar</a>
                 </div>
+
             </form>
         <?php endif; ?>
     </div>

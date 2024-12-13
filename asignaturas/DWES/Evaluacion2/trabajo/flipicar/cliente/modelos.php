@@ -63,11 +63,10 @@ if ($marca) {
                                     <a href="#"
                                         class="btn btn-calculate"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#alquilerModal"
-                                        onclick="cargarDatosModal(<?php echo htmlspecialchars(json_encode($row)); ?>)">
+                                        data-bs-target="#alquilerModal">
                                         Calcular alquiler
                                     </a>
-                                    <a href="ver_ficha.php?id=<?php echo $row['id']; ?>" class="btn btn-view">Ver ficha</a>
+                                    <a href="../include/templates/ficha.php?modelo=<?php echo $row['modelo']; ?>" class="btn btn-view">Ver ficha</a>
                                 </div>
                             </div>
                         </div>
@@ -82,8 +81,6 @@ if ($marca) {
 
     <!-- Modal -->
     <?php include '../include/templates/modal.php'; ?>
-
-    <script src="../assests/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
