@@ -1,0 +1,117 @@
+/* SELECTORES BÁSICOS */
+
+/*Pon el h1 en color rojo y fondo negro */
+h1 {
+    color: red;
+    background-color: black;
+}
+
+/*Pon al párrafo-dos un color de texto rojo y subrayado*/
+#parrafo-dos {
+    color: red;
+    text-decoration: underline;
+}
+
+/* La clase bg-skyblue y steelblue tienen un color de fondo como el nombre de la clase y el color de texto rojo */
+.text-32 {
+    font-size: 32px;
+    background-color: skyblue;
+    color: white;
+}
+
+.bg-skyblue,
+.steelblue {
+    color: red;
+    background-color: skyblue;
+}
+
+/* Las clases de text- tienen el tamaño del texto como el número que las acompaña y el color del texto como el color que las acompaña */
+.text-20 {
+    font-size: 20px;
+    background-color: steelblue;
+    color: white
+}
+
+
+/* 2) PARTE DE SELECTORES AVANZADOS */
+
+/* Los li hijos directos de las clases hijos-directos tienen un color de fondo thistle los b hijos directos de la clase hijos-directos tienen un color de texto rojo */
+.hijos-directos,
+li .hijos-directos>b {
+    background-color: thistle;
+    color: red;
+}
+
+/* los b dentro de la clase hijos-descendientes también un color de fondo thistle */
+.hijos-descendientes b,
+.hijos-descendientes>li {
+    color: red;
+    background-color: thistle;
+}
+
+/* Todos los li hermanos, dentro de la clase hermanos-general color de fondo thistle*/
+.hermanos-general+li,
+.hermanos-general,
+.hermanos-general+li+li {
+    background-color: thistle;
+}
+
+/* El li hermano adyacente dentro de la clase hermanos-adyacentes color de fondo red*/
+.hermanos-adyacentes,
+.hermanos-adyacentes+li,
+.hermanos-adyacentes+li+li {
+    background-color: red;
+}
+
+
+
+/* 3) PARTE DE SELECTORES DE ATRIBUTO */
+/* Todos los enlaces con el atributo href en verde */
+.selectores-atributos a[href] {
+    color: green;
+}
+
+/* Todos los enlaces con el atributo target="_blank" en negrita */
+[target="_blank"] {
+    font-weight: bold;
+}
+
+/* Todos los elementos con el texto cdmfp, dentro del valor de la propiedad href con tamaño de fuente 44px */
+[href*="cdmfp"] {
+    font-size: 44px;
+}
+
+/* Todos los elementos que tengan el href que comience por http:// sin subrayado */
+[href^="http://"] {
+    text-decoration: none;
+}
+
+/* Todos los elementos donde el href termine con .com color de fondo negro */
+[href^=".com"] {
+    background-color: black;
+}
+
+.selectores-atributos a[class~="cursos"] {
+    background-color: midnightblue
+}  
+
+/*
+da color al fondo de la etiqueta "a" en la calse llamada cursos
+*/
+
+.selectores-atributos a[class|="menu"] {
+    font-style: italic;
+}
+
+/*
+dar farmato cursiva a la etiqueta "a" en la calse llamada menu
+*/
+
+.selector-universal{ 
+    font-size: 24px;
+}
+
+/*aplica estos formatos a todos los elementos dentro de la clase form-pseudoclases*/ 
+.form-pseudoclases{
+    
+}

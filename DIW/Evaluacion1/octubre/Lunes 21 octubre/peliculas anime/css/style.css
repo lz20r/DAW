@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /*Creamos variables para los colores*/
+    --color-black: #212121;
+    --color-white: #FFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/**/
+.article section img {
+    width: 300px;
+    height: auto;
+    border-radius: 300px;
+}
+
+/* flexbox y centramos los cosas*/
+.article section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /*para que todas las secciones ocupen toda la pantalla*/
+}
+
+
+/*Colocamos el menú*/
+.header nav {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.header nav.hidden {
+    display: none;
+}
+
+.header nav a {
+    position: relative;
+    border-radius: 50%;
+    display: block;
+    margin: 10px;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+}
+
+.header nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 16px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    background-color: none;
+    box-shadow: 0 0 10px #000;
+}
+
+.header nav a:nth-child(1),
+.article #anime-2012 {
+    background-color: #f4eeb4;
+}
+
+.header nav a:nth-child(2),
+.article #anime-2013 {
+    background-color: #acc4a0;
+}
+
+.header nav a:nth-child(3),
+.article #anime-2014 {
+    background-color: #55897d;
+}
+
+.header nav a:nth-child(4),
+.article #anime-2015 {
+    background-color: #425454;
+}
+
+.header nav a:nth-child(5),
+.article #anime-2016 {
+    background-color: #7b564e;
+}
+
+.header nav a:nth-child(6),
+.article #anime-2017 {
+    background-color: #2e2e2e;
+}
+
+.header nav a:nth-child(7),
+.article #galeria {
+    background-color: #425454;
+}
+
+.header nav a:hover {
+    transform: scale(1.2);
+}
+
+.header nav a img {
+    width: 100%;
+    height: 100%;
+}
+
+/*Imagenes de anime*/
+article section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /*para que todas las secciones ocupen toda la pantalla*/
+}
+
+article section img {
+    width: 300px;
+    height: auto;
+    border-radius: 300px;
+}
+
+#galeria img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px #000;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#galeria img:hover {
+    transform: scale(1.0);
+    box-shadow: 0 0 20px #000;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    opacity: 0.8;
+    filter: grayscale(1);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+
+
+#galeria .fila {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#galeria .columna {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: content;
+    padding: 10px;
+}
+
+#galeria h1 {
+    text-align: center;
+    padding: 20px;
+    font-family: fantasy;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #b98888;
+    /* Color principal */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    /* Sombra sutil */
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
+}
+
+#galeria p {
+    text-align: center;
+    padding: 10px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    color: #ffffff;
+    /* Color gris suave */
+    line-height: 1.6;
+    /* Altura de línea para mejorar la legibilidad */
+    max-width: 800px;
+    /* Limitar el ancho del texto para que sea más fácil de leer */
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+}
+
+
+
+/*My Footer*/
+.footer {
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 99;
+    position: fixed;
+    width: 500px;
+    height: 200px;
+    top: 85%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -250px;
+}
+
+.footer a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-align: center;
+    margin: .5rem;
+    color: var(--color-white);
+    background-color: var(--color-black);
+    padding: .5rem .73rem;
+    border-radius: 25%;
+}
+
+@media (max-width: 600px) {
+    .columna {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 800px) {
+    .columna {
+        max-width: 48%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .columna {
+        max-width: 31%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .columna {
+        max-width: 23%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .columna {
+        max-width: 20%;
+    }
+}
+
+
+@media (min-width: 1800px) {
+    .columna {
+        max-width: 16%;
+    }
+}

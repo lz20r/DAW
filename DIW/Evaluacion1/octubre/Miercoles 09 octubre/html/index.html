@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        /**
+        1) Crea una página web, donde aparezca un círculo rojo, cuando la pantalla mida hasta 600px, cuando mida entre 601 y 900 px que se convierta en un cuadrado amarillo con una imagen de fondo que no se deforme, aunque se tenga que cortar y cuando mida más de 1000 que se convierta en un triángulo amarillo 
+        **/
+        body {
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .box {
+            --size: 200px;
+            --gradient: linear-gradient(indigo, hotpink);
+
+            width: var(--size);
+            height: var(--size);
+            background: var(--gradient);
+        }
+
+        .circle {
+            --size: 200px;
+            --gradient: linear-gradient(indigo, hotpink);
+
+            width: var(--size);
+            height: var(--size);
+            background: var(--gradient);
+            border-radius: 50%;
+        }
+
+        .triangle {
+            --size: 200px;
+
+            width: 0;
+            height: 0;
+            border-left: var(--size) solid transparent;
+            border-right: var(--size) solid transparent;
+            border-bottom: calc(var(--size) * 1.5) solid indigo;
+        }
+    </style>
+
+    <div class="box"></div>
+    <div class="circle"></div>
+    <div class="triangle"></div>
+</body>
+
+</html>

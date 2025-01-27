@@ -1,0 +1,76 @@
+html {
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #ccc;
+}
+
+/* Estilos de la cabecera */
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) 1fr 1fr 1fr;
+    /* 4 columnas  y 4 filas */
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+}
+
+.container div {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container div:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container div:nth-child(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}

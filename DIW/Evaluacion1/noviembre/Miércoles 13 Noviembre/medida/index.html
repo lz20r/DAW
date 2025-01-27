@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <nav>
+        <ul class="nav">
+            <li>Números, longitudes y porcentajes</li>
+            <li>Unidades de medida absolutas</li>
+            <li>Unidades de medida relativas</li>
+        </ul>
+    </nav>
+    <h1>Valores y unidades CSS</h1> <br>
+    <h2>Números, longitudes y porcentajes</h2>
+    <figure class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de datos</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="/es/docs/Web/CSS/integer"><code>&lt;integer&gt;</code></a></td>
+                    <td>Un <code>&lt;integer&gt;</code> es un número entero, como <code>1024</code> o <code>-55</code>.
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/es/docs/Web/CSS/number"><code>&lt;number&gt;</code></a></td>
+                    <td>Un <code>&lt;number&gt;</code> representa un número decimal; puede tener o no un punto de
+                        separación
+                        decimal con un componente fraccionario, por ejemplo: <code>0.255</code>, <code>128</code> o
+                        <code>-1.2</code>.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>&lt;dimension&gt;</code></td>
+                    <td>Una <code>&lt;dimension&gt;</code> es un <code>&lt;number&gt;</code> con una unidad asociada,
+                        por
+                        ejemplo: <code>45deg</code> (grados), <code>5s</code> (segundos) o <code>10px</code> (píxeles).
+                        <code>&lt;dimension&gt;</code> es una categoría general que incluye los tipos <a
+                            href="/es/docs/Web/CSS/length"><code>&lt;length&gt;</code></a>, <a
+                            href="/es/docs/Web/CSS/angle"><code>&lt;angle&gt;</code></a>, <a
+                            href="/es/docs/Web/CSS/time"><code>&lt;time&gt;</code></a> y <a
+                            href="/es/docs/Web/CSS/resolution"><code>&lt;resolution&gt;</code></a><a
+                            href="/es/docs/Web/CSS/resolution">.</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/es/docs/Web/CSS/percentage"><code>&lt;percentage&gt;</code></a></td>
+                    <td>Un <code>&lt;percentage&gt;</code> representa una fracción de algún otro valor, por ejemplo,
+                        <code>50%</code>. Los valores de porcentaje siempre son relativos a otra cantidad, por ejemplo,
+                        la
+                        longitud de un elemento es relativa a la longitud de su elemento padre.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <h2>Unidades de medida absolutas</h2>
+    <figure class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Unidad</th>
+                    <th>Nombre</th>
+                    <th>Equivale a</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>cm</code></td>
+                    <td>Centímetros</td>
+                    <td>1cm = 96px/2,54</td>
+                </tr>
+                <tr>
+                    <td><code>mm</code></td>
+                    <td>Milímetros</td>
+                    <td>1mm = 1/10 de 1cm</td>
+                </tr>
+                <tr>
+                    <td><code>Q</code></td>
+                    <td>Cuartos de milímetros</td>
+                    <td>1Q = 1/40 de 1cm</td>
+                </tr>
+                <tr>
+                    <td><code>in</code></td>
+                    <td>Pulgadas</td>
+                    <td>1in = 2,54cm = 96px</td>
+                </tr>
+                <tr>
+                    <td><code>pc</code></td>
+                    <td>Picas</td>
+                    <td>1pc = 1/6 de 1in</td>
+                </tr>
+                <tr>
+                    <td><code>pt</code></td>
+                    <td>Puntos</td>
+                    <td>1pt = 1/72 de 1in</td>
+                </tr>
+                <tr>
+                    <td><code>px</code></td>
+                    <td>Píxeles</td>
+                    <td>1px = 1/96 de 1in</td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <h2>Unidades de medida relativas</h2>
+    <figure class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Unidad</th>
+                    <th>Relativa a</th>
+                    <th>Ejemplos de uso</th>
+                    <th>Codigo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr> <!-- em -->
+                    <td><code>em</code></td>
+                    <td>Tamaño de letra del elemento padre, en el caso de propiedades tipográficas como <a
+                            href="/es/docs/Web/CSS/font-size"><code>font-size</code></a>, y tamaño de la fuente del
+                        propio
+                        elemento en el caso de otras propiedades, como <a
+                            href="/es/docs/Web/CSS/width"><code>width</code></a>.
+                    </td>
+                    <td>
+                        <li><code>font-size: 2em;</code> - el tamaño de la fuente es el doble de la fuente del elemento
+                            padre</li>
+                        <li><code>width: 20em;</code> - el ancho del elemento es 20 veces el tamaño de la fuente del
+                            elemento padre</li>
+                    </td>
+                    <td>
+                        <code class="language-css">
+                        .elemento {
+                            font-size: 2em;
+                            width: 20em;
+                        }
+                        </code>
+                    </td>
+
+                </tr>
+
+                <tr> <!-- ex -->
+                    <td><code>ex</code></td>
+                    <td>Altura x de la fuente del elemento.</td>
+                    <td>
+                        <li><code>font-size: 2ex;</code> - el tamaño de la fuente es el doble de la altura x de la
+                            fuente</li>
+                    </td>
+                    <td>
+                        <code class="language-css">
+                        .elemento {
+                            font-size: 2ex;
+                        }
+                        </code>
+                </tr>
+
+                <tr> <!-- ch -->
+                    <td><code>ch</code></td>
+                    <td>La medida de avance (ancho) del glifo "0" de la letra del elemento.</td>
+                    <td>
+                        <li><code>font-size: 2ch;</code> - el tamaño de la fuente es el doble del ancho de la letra "0"
+                        </li>
+                    </td>
+                    <td>
+                        <code class="language-css">
+                        .elemento {
+                            font-size: 2ch;
+                        }
+                        </code>
+                    </td>
+                </tr>
+
+                <tr> <!-- rem -->
+                    <td><code>rem</code></td>
+                    <td>Tamaño de la letra del elemento raíz.</td>
+                    <td>
+                        <li><code>font-size: 2rem;</code> - el tamaño de la fuente es el doble del tamaño de la fuente
+                            del
+                            elemento raíz</li>
+                    </td>
+                    <td>
+                        <code class="language-css">
+                        .elemento {
+                            font-size: 2rem;
+                        }
+                        </code>
+                    </td>
+                </tr>
+
+                <tr> <!-- lh -->
+                    <td><code>lh</code></td>
+                    <td>Altura de la línea del elemento.</td>
+                </tr>
+
+                <tr> <!-- vw -->
+                    <td><code>vw</code></td>
+                    <td>1% del ancho de la ventana gráfica.</td>
+                </tr>
+
+                <tr> <!-- vh -->
+                    <td><code>vh</code></td>
+                    <td>1% de la altura de la ventana gráfica.</td>
+                </tr>
+
+                <tr> <!-- vmin -->
+                    <td><code>vmin</code></td>
+                    <td>1% de la dimensión más pequeña de la ventana gráfica.</td>
+                </tr>
+
+                <tr> <!-- vmax -->
+                    <td><code>vmax</code></td>
+                    <td>1% de la dimensión más grande de la ventana gráfica.</td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+</body>
+
+</html>

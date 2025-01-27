@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 100px;
+    text-align: center;
+    font-size: medium;
+    font-family: Arial;
+}
+
+h1 {
+    color: rosybrown;
+    font-family: Courier;
+}
+
+h2,
+.Economia,
+.Deportes {
+    font-family: Verdana;
+    background-color: rgb(178, 211, 178);
+}
+
+p,
+.economia {
+    text-align: justify;
+    color: rgb(255, 115, 0);
+    line-height: 1.5;
+}
+
+p,
+.deporte {
+    text-align: justify;
+    color: rgb(81, 91, 235);
+    line-height: 1.5;
+}
