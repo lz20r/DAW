@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDM Halloween</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Magic+Legends&family=Rock+Salt&family=Cinzel&display=swap">
+    <link rel="icon" href="../img/logo.png">
+    <script src="../js/script.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="../img/logo.png" alt="logo" width="100px" height="100px"></a>
+            </div>
+            <div class="menu">
+                <div id="menu-icon" onclick="toggleMenu()">&#9776;</div>
+                <ul>
+                    <li><a href="fiesta.html">Fiesta Halloween</a></li>
+                    <li><a href="subasta.html">Subasta Benéfica</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h1>¡Bienvenidos a CDM Halloween!</h1>
+            <a id="invitacion" href="<%=rs(" IDENTIDICACION")%" download="../img/invitacion.png">
+                <img src="../img/invitacion.png" alt="invitacion">
+            </a>
+            <button>
+                <a href="#galeria"> Ver nuestra galería</a>
+            </button>
+
+            <p>¡Celebra Halloween con nosotros! Únete a nuestra Fiesta de Halloween el 31 de octubre a las 16:00 y
+                disfruta de una tarde llena de diversión, juegos y sorpresas. También puedes participar en nuestra
+                Subasta Benéfica y pujar por regalos emocionantes. Todos los fondos recaudados irán destinados a
+                ayudar a cubrir las matrículas de los estudiantes que están repitiendo. ¡Ayuda a una buena causa y
+                gana fantásticos premios!</p>
+            <br>
+            <button>
+                <a href="contacto.html">¡Contactanos!</a>
+            </button>
+            <button>
+                <a href="fiesta.html">¡Participa en la Fiesta de Halloween!</a>
+            </button>
+
+            <button>
+                <a href="subasta.html">¡Participa en la Subasta Benefica!</a>
+            </button>
+        </section>
+        <section id="galeria">
+            <h2>Galeria de Halloween </h2>
+            <div class="carrusel">
+                <input type="radio" name="carrusel" id="slide1" checked>
+                <input type="radio" name="carrusel" id="slide2">
+                <input type="radio" name="carrusel" id="slide3">
+                <input type="radio" name="carrusel" id="slide4">
+                <input type="radio" name="carrusel" id="slide5">
+
+                <div class="carrusel-images" id="carrusel-images">
+                    <div class="carrusel-image">
+                        <img src="../img/lumina.jpg" alt="Descripción de la imagen 1">
+                    </div>
+                    <div class="carrusel-image">
+                        <img src="../img/disfraz.jpg" alt="Descripción de la imagen 2">
+                    </div>
+                    <div class="carrusel-image">
+                        <img src="../img/trio.jpg" alt="Descripción de la imagen 3">
+                    </div>
+                    <div class="carrusel-image">
+                        <img src="../img/avatar.webp" alt="Descripción de la imagen 4">
+                    </div>
+                    <div class="carrusel-image">
+                        <img src="../img/saw.webp" alt="Descripción de la imagen 5">
+                    </div>
+                </div>
+
+                <div class="carrusel-controls">
+                    <label for="slide1" class="control"></label>
+                    <label for="slide2" class="control"></label>
+                    <label for="slide3" class="control"></label>
+                    <label for="slide4" class="control"></label>
+                    <label for="slide5" class="control"></label>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CDM Halloween. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,674 @@
+@font-face {
+    font-family: 'Magic Legends';
+    src: url("../fonts/October Crow.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'October Crow';
+    src: url("../fonts/October Crow.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'October Crow', sans-serif;
+    letter-spacing: 1.5px;
+    background-color: #121212;
+    color: #f0f0f0;
+    padding-bottom: 80px;
+}
+
+header {
+    background-color: #8B4513;
+    padding: 20px;
+    border-bottom: 3px solid #ffcc00;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+nav {
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #ffcc00;
+    margin-left: 20px;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.menu a:hover {
+    color: #ff6347;
+    transform: scale(1.1);
+}
+
+main {
+    padding: 20px;
+}
+
+/* Inicio */
+#inicio {
+    font-family: 'Misty Graveyard';
+    text-align: center;
+    font-size: 0.7em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    margin-bottom: 30px;
+    color: #ffa600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#inicio h1 {
+    font-family: 'Magic Legends', cursive;
+    font-size: 6em;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+#inicio p {
+    width: 500px;
+    font-family: 'Misty Graveyard', cursive;
+    font-size: 1.5em;
+    text-align: center;
+    text-align: justify;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    padding: 10px;
+
+    @media (max-width: 768px) {
+        width: 500px;
+        height: auto;
+        text-align: center;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.8);
+        border-radius: 8px;
+        padding: 9px;
+        margin-bottom: 20px;
+    }
+}
+
+#inicio img {
+    max-width: 100%;
+    width: 300px;
+    height: auto;
+    border: 2px dashed #ffcc00;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 9px;
+    margin-bottom: 20px;
+}
+
+#invitacion :hover {
+    transform: scale(2.1);
+}
+
+#galeria {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+#galeria img {
+    max-width: 100%;
+    width: 900px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+#galeria h2 {
+    font-family: 'Magic Legends', cursive;
+    text-align: center;
+    color: #ffcc00;
+}
+
+
+button {
+    margin-top: 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flexbox;
+}
+
+button:hover {
+    background-color: #ffa600;
+    transform: scale(1.1);
+}
+
+button a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Carrusel */
+.carrusel {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.carrusel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carrusel-image {
+    min-width: 100%;
+}
+
+.carrusel-images img {
+    width: 100%;
+    align-items: center;
+    border-radius: 8px;
+    ;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#slide1:checked~.carrusel-images {
+    transform: translateX(0);
+}
+
+#slide2:checked~.carrusel-images {
+    transform: translateX(-100%);
+}
+
+#slide3:checked~.carrusel-images {
+    transform: translateX(-200%);
+}
+
+#slide4:checked~.carrusel-images {
+    transform: translateX(-300%);
+}
+
+#slide5:checked~.carrusel-images {
+    transform: translateX(-400%);
+}
+
+.carrusel-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.control {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.control:hover {
+    background-color: #ff6347;
+}
+
+h1 {
+    font-family: 'Magic Legends', cursive;
+    font-size: 2em;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    margin-bottom: 20px;
+}
+
+
+#fiesta {
+    background-color: #e74c3c;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px dashed #ffcc00;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+#fiesta h1 {
+    font-family: 'Magic Legends', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+#fiesta p {
+    font-family: 'Misty Graveyard', cursive;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+article {
+    --img-scale: 1.001;
+    --title-color: rgb(255, 115, 0);
+    --link-icon-translate: -20px;
+    --link-icon-opacity: 0;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #000000;
+    transform-origin: center;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+article a::after {
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
+    cursor: pointer;
+    content: "";
+}
+
+/* basic article elements styling */
+article h2 {
+    margin: 0 0 18px 0;
+    font-family: "Bebas Neue", cursive;
+    font-size: 1.9rem;
+    letter-spacing: 0.06em;
+    color: var(--title-color);
+    transition: color 0.3s ease-out;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+article img {
+    max-width: 100%;
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.4s ease-in-out;
+}
+
+.article-body {
+    padding: 24px;
+}
+
+article a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffef0a;
+}
+
+article a:focus {
+    outline: 1px dotted #000505;
+}
+
+article a .icon {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    transform: translateX(var(--link-icon-translate));
+    opacity: var(--link-icon-opacity);
+    transition: all 0.3s;
+}
+
+/* hover effects */
+article:has(:hover, :focus) {
+    --img-scale: 1.1;
+    --title-color: #f0f3c3;
+    --link-icon-translate: 0;
+    --link-icon-opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+/* demo stuff */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.articles {
+    display: grid;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+@media screen and (max-width: 960px) {
+    article {
+        container: card/inline-size;
+    }
+
+    .article-body p {
+        display: none;
+    }
+}
+
+@container card (min-width: 380px) {
+    .article-wrapper {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 16px;
+    }
+
+    .article-body {
+        padding-left: 0;
+    }
+
+    figure {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    figure img {
+        height: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+}
+
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+
+#subasta {
+    background-color: #e74c3c;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px dashed #ffcc00;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+#subasta h1 {
+    font-family: 'Magic Legends', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#subasta p {
+    font-family: 'Misty Graveyard', cursive;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Contacto */
+#contacto {
+    margin-top: 20px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #ff7605ce;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.contact-container h2 {
+    text-align: center;
+    color: #ffcc00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    font-family: 'Magic Legends', cursive;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.contact-container input,
+.contact-container button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 2px solid #8B4513;
+    width: 300px;
+    font-size: 1.2em;
+    color: #8B4513;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.3s;
+    outline: none;
+    text-align: center;
+    font-family: 'Magic Legends', cursive;
+    text-shadow: 2px 2px 5px rgba(255, 5, 5, 0.9);
+    background-color: #ffcc00;
+    border: 2px solid #8B4513;
+}
+
+.contact-container textarea {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 2px solid #8B4513;
+    width: 300px;
+    font-size: 1.2em;
+    color: #8B4513;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.3s;
+    outline: none;
+    text-align: center;
+    font-family: 'Magic Legends', cursive;
+    text-shadow: 2px 2px 5px rgba(212, 15, 15, 0.9);
+    background-color: #ffcc00;
+    border: 2px solid #8B4513;
+}
+
+.contact-container button {
+    background-color: #8B4513;
+    color: rgb(255, 174, 0);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-container button:hover {
+    background-color: #000000;
+    transform: scale(1.05);
+}
+
+.contact-container button:active {
+    transform: scale(0.95);
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border-color: #ff6347;
+}
+
+.contact-container input::placeholder,
+.contact-container textarea::placeholder {
+    color: #8B4513;
+}
+
+.map-container {
+    margin-top: 20px;
+}
+
+.map-container iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    border: 2px solid #8B4513;
+    transition: border-color 0.3s;
+    width: 500px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+.map-container iframe:focus {
+    border-color: #ff6347;
+}
+
+/* Pie de página */
+footer {
+    background: linear-gradient(135deg, #c08d3f, #c06e38);
+    color: #000000;
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    border-top: 5px solid #e93d1b;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    font-size: 1.2em;
+    margin: 5px 0;
+    transition: color 0.3s;
+}
+
+footer p:hover {
+    background: linear-gradient(135deg, #000000, #000000);
+    color: #ff3c00;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+footer:hover {
+    animation: pulse 1s infinite;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    nav {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    #menu-icon {
+        display: block;
+
+    }
+
+    #inicio img {
+        width: 22%;
+    }
+
+    #inicio h1 {
+        font-size: 4em;
+    }
+
+    #inicio p {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    #inicio img {
+        width: 30%;
+    }
+}
