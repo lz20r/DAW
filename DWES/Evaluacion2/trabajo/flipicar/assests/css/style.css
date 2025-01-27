@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@1,700&family=Rubik+Doodle+Shadow&family=Saira+Extra+Condensed:wght@100&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+
+/*Fuentes*/
+#ofrecemos h2,
+p {
+    font-family: "Montserrat", sans-serif;
+
+}
+
+#ofrecemos h2 {
+    font-size: 35px
+}
+
+#ofrecemos p {
+    font-size: 24px
+}
+
+.carousel-item {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.navbar {
+    position: fixed;
+    background-color: transparent;
+background-color: rgba(0, 0, 0, 0.8);
+    background-origin: border-box;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    transition: background-color 0.1s ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 1rem;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #dbdada;
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #fff;
+}
+
+.navbar .navbar-brand img {
+    height: 80px;
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    footer {
+        padding: 30px 0;
+    }
+
+    footer .social-icons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 1;
+}
+
+.navbar-toggler {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon::before {
+    top: -8px;
+}
+
+.navbar-toggler-icon::after {
+    top: 8px;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon {
+    background-color: white;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* Menú de pantalla completa y fondo negro en móviles */
+.navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.navbar-collapse.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar-nav {
+    flex-direction: column;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 1.5rem;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ccc;
+}
+
+/* Estructura de la barra de navegación en pantallas grandes */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        position: static;
+        background-color: transparent;
+        height: auto;
+        justify-content: flex-end;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        margin: 0 10px;
+        text-align: left;
+    }
+}
+
+/* Estilo de los divs de marcas de coches */
+.brand-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.brand-item:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.brand-item img {
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.brand-item h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/*Pie*/
+footer {
+    background-color: #222;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ccc;
+}
+
+footer .social-icons {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer .social-icons li {
+    display: inline-block;
+}
+
+footer .social-icons li a {
+    font-size: 2rem;
+    color: white;
+    transition: color 0.3s;
+}
+
+footer .social-icons li a:hover {
+    color: #ccc;
+}
+
+footer p {
+    font-size: 1rem;
+}

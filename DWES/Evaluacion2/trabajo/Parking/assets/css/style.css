@@ -1,0 +1,151 @@
+/* Estilos generales */
+body {
+    background: black;
+    width: 100%;
+    max-width: 1200px; 
+}
+
+
+/* Navbar estilo navideño */
+.navbar {
+    background: linear-gradient(to right, #b22222, #d32f2f);
+    /* Gradiente rojo navideño */
+    border-bottom: 3px solid #ffea70; 
+}
+
+.navbar a {
+    color: #fff !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ffea70 !important;
+    text-shadow: 0 0 10px #ffea70;
+}
+
+/* Título navideño */
+h1 {
+    color: #ffea70 !important;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 2px 5px rgba(255, 255, 0, 0.4);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* Subtítulo navideño */
+p {
+    color: #ffea70 !important;
+    font-family: 'Pacifico', cursive;   
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Botones navideños */
+.btn-primary {
+    background: linear-gradient(to bottom, #228b22, #32cd32);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to bottom, #32cd32, #228b22);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Texto navideño */
+.text-success {
+    color: #32cd32 !important;
+    font-weight: bold;
+}
+
+.text-danger {
+    color: #e53935 !important;
+    font-weight: bold;
+}
+
+/* Decoraciones para tarjetas */
+.card {
+    border: 2px solid #ffea70;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(to right, #228b22, #32cd32);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card-body {
+    background: url('/assets/img/snowflakes.png') no-repeat center center;
+    background-size: cover;
+}
+
+.card-footer {
+    background: linear-gradient(to right, #b22222, #d32f2f);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Estilo mejorado para la tabla */
+.table {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.table thead tr {
+    background: linear-gradient(to right, #c62828, #d32f2f);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 3px solid #2e7d32;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #fdfdfd;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+.table tbody tr:hover {
+    background-color: #e8f5e9;
+    transition: background-color 0.3s ease;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.table tfoot tr {
+    background: linear-gradient(to right, #2e7d32, #388e3c);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-top: 3px solid #c62828;
+}
+
+/* Texto de error en celdas */
+.table tbody td[colspan="3"] {
+    text-align: center;
+    font-style: italic;
+    color: #b71c1c;
+    font-weight: bold;
+    background-color: #ffebee;
+}

@@ -1,0 +1,189 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    size: 100%;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://via.placeholder.com/1920x500') no-repeat center center / cover;
+    background-size: 100% 100%;
+    position: relative;
+    height: 500px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.features-bar .feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Features Section */
+.feature-box {
+    border: 1px solid red;
+    border-radius: 8px;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.feature-box p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: red;
+}
+
+.feature-box h6 {
+    color: red;
+}
+
+/* Divider */
+.divider {
+    margin: 30px 0;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Models Section */
+.models-section {
+    padding: 40px 0;
+}
+
+.models-section .card {
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.models-section .card-img-top {
+    width: 100%;
+    height: 300px;
+    object-position: center;
+    object-fit: cover;
+}
+
+.models-section .card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.models-section .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.models-section .card-subtitle {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+}
+
+.models-section .btn {
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 3px;
+    margin: 5px;
+    width: 100px;
+}
+
+.models-section .btn-calculate {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+
+.models-section .btn-calculate:hover {
+    background-color: #b52d38;
+}
+
+.models-section .btn-view {
+    background-color: transparent;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.models-section .btn-view:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.modal-body .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+
+.modal-body .col-md-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.modal-body h6 {
+    margin-bottom: 20px;
+    /* Separación entre el título y el contenido */
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+}
+
+span .c {
+    color: red;
+    font-weight: bold;
+}
+
+.modal-body .col-md-4:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: 0;
+    width: 1px;
+    height: 80%;
+    background-color: #ff0000;
+    /* Divisor vertical */
+}

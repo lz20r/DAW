@@ -1,0 +1,28 @@
+.service-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: -100px;
+    position: relative;
+    z-index: 4;
+}
+
+.service-image {
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.service-container {
+    margin-bottom: 50px;
+}
+
+.row:nth-child(odd) .service-card {
+    margin-left: auto;
+}
+
+.row:nth-child(even) .service-card {
+    margin-right: auto;
+}
