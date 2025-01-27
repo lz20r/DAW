@@ -1,0 +1,290 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+	--header-height: 3.5rem;
+	--animate-snow-1: animate-snow-1 5s infinite ease-in-out;
+	--animate-snow-2: animate-snow-2 5s infinite ease-in-out;
+
+	/*========== Colors ==========*/
+	--first-color: hsl(210, 80%, 54%);
+	--first-color-alt: hsl(210, 80%, 50%);
+	--title-color: hsl(210, 24%, 90%);
+	--text-color: hsl(210, 16%, 70%);
+	--white-color: #fff;
+	--body-color: hsl(210, 32%, 4%);
+
+	/*========== Font and typography ==========*/
+	--body-font: "Poppins", sans-serif;
+	--second-font: "Dancing Script", cursive;
+	--biggest-font-size: 2.5rem;
+	--h1-font-size: 1.5rem;
+	--h2-font-size: 1.25rem;
+	--h3-font-size: 1rem;
+	--normal-font-size: .938rem;
+	--small-font-size: .813rem;
+	--smaller-font-size: .75rem;
+
+	/*========== Font weight ==========*/
+	--font-medium: 500;
+	--font-semi-bold: 600;
+	--font-bold: 700;
+
+	/*========== z index ==========*/
+	--z-tooltip: 10;
+	--z-fixed: 100;
+}
+
+@media screen and (min-width: 1024px) {
+	:root {
+		--biggest-font-size: 5rem;
+		--h1-font-size: 2.25rem;
+		--h2-font-size: 1.5rem;
+		--h3-font-size: 1.25rem;
+		--normal-font-size: 1rem;
+		--small-font-size: .875rem;
+		--smaller-font-size: .813rem;
+	}
+}
+
+/*=============== BASE ===============*/
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 100%;
+}
+
+@media screen and (max-width: 768px) {
+	html {
+		font-size: 90%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	html {
+		font-size: 80%;
+	}
+}
+
+.parallax {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: url(../img/fondo.avif) no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+@media screen and (max-width: 768px) {
+	.parallax {
+		background-attachment: scroll;
+		background-size: auto 100%;
+	}
+}
+
+#text {
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	font-family: var(--second-font);
+	font-weight: 700;
+	transform: translate(-50%, -50%);
+	font-size: 7em;
+	text-align: center;
+	color: #000000;
+}
+
+@media screen and (max-width: 600px) {
+	#text {
+		font-size: 3em;
+	}
+}
+
+#countdown {
+	text-align: center;
+	font-size: 1.5em;
+	margin: 30px auto;
+	padding: 20px;
+	color: #fff;
+	background: linear-gradient(90deg, #534f4f, #69806a);
+	border-radius: 15px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+	max-width: 500px;
+	border: 3px solid #3b3108;
+	animation: pulse 1.5s infinite;
+}
+
+@media screen and (max-width: 600px) {
+	#countdown {
+		font-size: 1em;
+		padding: 10px;
+		margin: 15px auto;
+	}
+}
+
+@keyframes pulse {
+
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.05);
+	}
+}
+
+#countdown p {
+	margin: 10px 0;
+}
+
+#countdown span {
+	font-size: 2em;
+}
+
+@media screen and (max-width: 600px) {
+	#countdown span {
+		font-size: 1.5em;
+	}
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.card {
+	position: relative;
+	width: 300px;
+	height: 400px;
+	margin: 20px;
+	overflow: hidden;
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	transition: all 0.5s ease-in-out;
+}
+
+.card:hover {
+	transform: scale(1.1);
+}
+
+.card .content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.5s ease-in-out;
+}
+
+.card:hover .content {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card .content .img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card .content .img img {
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.card .content .details {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: #fff;
+	opacity: 0;
+	transition: all 0.5s ease-in-out;
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 0 0 20px 20px;
+}
+
+.card:hover .content .details {
+	opacity: 1;
+}
+
+.card .content .details h2 {
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+
+.card .content .details p {
+	font-size: 1.2em;
+}
+
+.card .content .details a {
+	text-decoration: none;
+	color: #fff;
+	font-weight: 600;
+}
+
+.card .content .details a:hover {
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) { 
+	.card {
+		width: 90%;
+		height: auto;
+	}
+
+	.card .content .details h2 {
+		font-size: 1.5em;
+	}
+
+	.card .content .details p {
+		font-size: 1em;
+	} 
+}
+
+@media screen and (max-width: 480px) {
+	#countdown {
+		font-size: .3em;
+	}
+
+	.card {
+		width: 100%;
+		height: auto;
+	}
+
+	.card .content .details h2 {
+		font-size: 1.2em;
+	}
+
+	.card .content .details p {
+		font-size: 0.9em;
+	}
+}
+

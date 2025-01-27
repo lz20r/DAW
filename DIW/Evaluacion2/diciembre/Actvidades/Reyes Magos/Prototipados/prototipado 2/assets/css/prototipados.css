@@ -1,0 +1,153 @@
+body {
+	margin: 0;
+	height: 100vh;
+}
+
+.contenedor {
+	width: 100%;
+	max-width: 1200px;
+	max-height: max-content;
+	margin: 10px auto;
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(6, minmax(100px, auto));
+	grid-template-areas:
+		"cabecera cabecera cabecera cabecera"
+		"contenido contenido contenido contenido"
+		"sectionA sectionA sectionA sectionA"
+		"sectionB sectionB sectionB sectionB"
+		"footer footer footer footer";
+}
+
+.contenedor>div,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .sectionA,
+.contenedor .section-1,
+.contenedor .section-2,
+.contenedor .section-3,
+.contenedor .sectionB,
+.contenedor .section-4,
+.contenedor .section-5,
+.contenedor .section-6,
+.footer {
+	padding: 40px;
+	border-radius: 4px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.header::before,
+.contenido::before,
+.sectionA::before,
+.section-1::before,
+.section-2::before,
+.section-3::before,
+.sectionB::before,
+.section-4::before,
+.section-5::before,
+.section-6::before,
+.footer::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: repeating-linear-gradient(45deg,
+			#000,
+			#000 10px,
+			#fff 10px,
+			#fff 20px);
+	opacity: 0.1;
+	z-index: 1;
+}
+
+.header,
+.footer {
+	position: relative;
+	z-index: 2;
+}
+
+.header {
+	grid-area: cabecera;
+	background-color: #a8bac0;
+	border: 1px solid #000000;
+}
+
+.contenido {
+	grid-area: contenido;
+	background-color: #c0dfd7;
+	border: 1px solid #000000;
+	width: 100%; 
+	width: 1200px;
+	height: 1000px;
+}
+
+.sectionA {
+	grid-area: sectionA;
+	background-color: #dfced6;
+	border: 1px solid #000000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 900px;
+}
+
+.sectionB {
+	grid-area: sectionB;
+	background-color: #cedddf;
+	border: 1px solid #000000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 900px;
+}
+.section-1 {
+	grid-area: section-1;
+	background-color: #3f7c86;
+	border: 1px solid #000000; 
+}
+
+.section-2 {
+	grid-area: section-2;
+	background-color: #c55d91;
+	border: 1px solid #000000;
+}
+
+.section-3 {
+	grid-area: section-3;
+	background-color: #46b474;
+	border: 1px solid #000000;
+}
+
+
+.section-4 {
+	grid-area: section-4;
+	background-color: #68926f;
+	border: 1px solid #000000;
+}
+
+.section-5 {
+	grid-area: section-5;
+	background-color: #7b88b1;
+	border: 1px solid #000000;
+}
+
+.section-6 {
+	grid-area: section-6;
+	background-color: #88a364;
+	border: 1px solid #000000;
+}
+
+.footer {
+	grid-area: footer;
+	margin-bottom: 10px;
+	background-color: #a8bac0;
+	border: 1px solid #000000;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}

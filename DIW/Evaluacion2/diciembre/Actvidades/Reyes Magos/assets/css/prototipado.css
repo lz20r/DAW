@@ -1,0 +1,163 @@
+
+
+body {
+	font-family: 'Christmas Classica', sans-serif;
+}
+
+body {
+	margin: 0;
+	height: 100vh;  
+}
+
+.contenedor {
+	width: 100%;
+	max-width: 1200px;
+	max-height: max-content;
+	margin: 10px auto;
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(6, minmax(100px, auto));
+	grid-template-areas:
+		"cabecera cabecera cabecera cabecera"
+		"contenido contenido contenido sidebar"
+		"contenido contenido contenido sidebar"
+		"contenido contenido contenido sidebar"
+		"widget1 widget1 widget2 widget2"
+		"footer footer footer footer";
+}
+
+.contenedor>div,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .contenido-1,
+.contenedor .contenido-2,
+.contenedor .contenido-3,
+.contenedor .contenido-4,
+.contenedor .contenido-5,
+.contenedor .contenido-6,
+.contenedor .contenido-7,
+.contenedor .contenido-8,
+.contenedor .contenido-9,
+.contenedor .contenido-10,
+.contenedor .sidebar,
+.contenedor .widget-1,
+.contenedor .widget-2,
+.contenedor .footer {
+	color: #000000;
+	padding: 40px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.header {
+	grid-area: cabecera;
+
+}
+
+.contenido {
+	grid-area: contenido;
+	display: grid;
+	gap: 10px;
+	height: 800px;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-columns: auto auto;
+	grid-template-areas:
+		"contenido-1 contenido-2"
+		"contenido-3 contenido-4"
+		"contenido-5 contenido-6"
+		"contenido-7 contenido-8";
+}
+
+.contenido-1 {
+	grid-area: contenido-1;
+	border: 1px solid #adb08f;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-2 {
+	grid-area: contenido-2;
+	border: 1px solid #ae6666;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-3 {
+	grid-area: contenido-3;
+	border: 1px solid #6d6d6d;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-4 {
+	grid-area: contenido-4;
+	border: 1px solid #6d6d6d;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-5 {
+	grid-area: contenido-5;
+	border: 1px solid #6d6d6d;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-6 {
+	grid-area: contenido-6;
+	border: 1px solid #6d6d6d;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+
+.contenido-7 {
+	grid-area: contenido-7;
+	border: 1px solid #6d6d6d;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.contenido-8 {
+	grid-area: contenido-8;
+	border: 1px solid #6d6d6d;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.sidebar {
+	grid-area: sidebar;
+}
+
+.widget-1 {
+	grid-area: widget1;
+}
+
+.widget-2 {
+	grid-area: widget2;
+}
+
+.footer {
+	grid-area: footer;
+	margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+	.contenedor {
+		grid-template-areas:
+			"cabecera cabecera"
+			"contenido contenido"
+			"sidebar sidebar"
+			"widget1 widget2"
+			"footer footer";
+	}
+}
