@@ -1,0 +1,240 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    box-sizing: border-box;  
+    background-color: #C5D0DC;
+}
+
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "mobile connecting discount"
+        "bottle logo icons"
+        "urbanist billboard";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px 100px;
+    gap: 10px;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    align-items: center;
+}
+
+/* Grid Items */
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Media Queries */
+
+@media (min-width: 400px) { 
+    .grid-container {
+        grid-template-areas:
+            "mobile"
+            "connecting"
+            "discount"
+            "bottle"
+            "logo"
+            "icons"
+            "urbanist"
+            "billboard";
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px;
+        max-width: 1200px;
+        gap: 10px;
+        padding: 100px;
+        align-items: center;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .mobile { 
+        grid-area: mobile;
+        margin-top: 400px; 
+    }
+
+    .ideas {
+        grid-area: connecting;   
+        margin-top: 1180px;  
+    }
+
+    .container {
+        grid-area: discount; 
+        margin-top: 1680px;
+        margin-left: 10px;
+        margin-right: 10px; 
+        max-width:  340px; 
+    }
+
+    .bottle {
+        grid-area: bottle; 
+        margin-top: 2380px; 
+    }
+
+    .logo {
+        grid-area: logo;
+        margin-top: 2870px;
+        width: 100%;
+        height: 100%;  
+    }
+
+    .icons {
+        grid-area: icons;
+        margin-top: 3710px;  
+        margin-right: 10px;
+        margin-left: 10px; 
+    }
+
+    .urbanist {
+        grid-area: urbanist;
+        margin-top: 2290px;
+        margin-left: 10px; 
+        margin-bottom: 10px;
+    }
+
+    .billboard {
+        grid-area: billboard;
+        margin-top: 4030px;
+        margin-left: 10px;
+    }
+}
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-areas:
+            "mobile bottle"
+            "connecting discount"
+            "logo icons"
+            "urbanist billboard";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 100px 100px 100px 100px;
+        max-width: 1200px;
+        gap: 10px;
+        padding: 100px;
+        align-items: center;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .mobile { 
+        grid-area: mobile;
+        margin-top: 400px; 
+    }
+
+    .bottle {
+        grid-area: bottle;
+        margin-top: 400px; 
+    }
+
+    .ideas { 
+        grid-area: connecting; 
+        margin-top: 1170px;
+        margin-left: 10px;
+    }
+
+    .container {
+        grid-area: discount; 
+        margin-top: 1100px;
+        margin-left: 10px;
+        margin-right: 10px; 
+        max-width:  340px; 
+    }
+
+    .logo {
+        grid-area: logo;
+        margin-top: 1470px;
+        width: 100%;
+        height: 100%; 
+        margin-left: 10px; 
+    }
+
+    .icons {
+        grid-area: icons;
+        margin-top: 1740px;  
+        margin-right: 10px;
+        margin-left: 10px; 
+    }
+
+    .urbanist {
+        grid-area: urbanist;
+        margin-top: 999px; 
+        margin-left: 10px; 
+        margin-bottom: 10px;
+    }
+
+    .billboard {
+        grid-area: billboard;
+        margin-top: 2130px;
+        margin-left: 10px;
+    }
+}
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-areas:
+            "mobile connecting discount"
+            "bottle logo icons"
+            "urbanist billboard billboard";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 100px 100px 100px 100px;
+        max-width: 1200px;
+        gap: 10px;
+        padding: 100px;
+        align-items: center;
+        margin: 0 auto;
+        position: relative;
+        justify-content: space-between;
+    }
+
+    .mobile { 
+        grid-area: mobile;
+        margin-top: 400px; 
+    }
+
+    .ideas { 
+        grid-area: connecting;
+        margin-top: 230px;
+        margin-left: 10px;
+    }
+
+    .container {
+        grid-area: discount; 
+        margin-top: 150px;
+        margin-left: 10px;
+        margin-right: 10px;  
+    }
+
+    .bottle {
+        grid-area: bottle;  
+        margin-top: 1350px; 
+    }
+
+    .logo {
+        grid-area: logo;
+        margin-top: 830px;
+        width: 100%;
+        height: 100%; 
+        margin-left: 10px; 
+    }
+
+    .icons {
+        grid-area: icons;
+        margin-top: 1110px;   
+        margin-left: 10px; 
+    }
+
+    .urbanist {
+        grid-area: urbanist;
+        margin-top: 1720px; 
+        margin-left: 10px; 
+    }
+
+    .billboard {
+        grid-area: billboard;
+        margin-top: 1660px;
+        margin-left: 10px;
+    }
+}
+

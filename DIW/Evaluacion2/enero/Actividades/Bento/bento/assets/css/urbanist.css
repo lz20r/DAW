@@ -1,0 +1,49 @@
+.container { 
+    justify-content: center;
+    align-items: center; 
+}
+
+.title {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 39px;
+    align-items: center;
+    text-align: center;
+    color: #3E8A6D;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 340px;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.progress-bar div {
+    height: 100%;
+}
+
+.green {
+    width: 40%;
+    background-color: #099866;
+}
+
+.white {
+    width: 40%;
+    background-color: #ffffff;
+}
+
+.cesped {
+    width: 40%;
+    background-color: #52CF5A;
+}
+
+.dark {
+    width: 40%;
+    background-color: #2c3e50;
+}

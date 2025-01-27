@@ -1,0 +1,106 @@
+
+/* Discount Section Styles */
+.discount-section {
+    display: flex;
+}
+/* Card Styles */
+.discount-card {
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    width: 280px;
+    padding: 20px;
+    display: flex; 
+    flex-direction: column;
+} 
+
+/* Discount Code Styles */
+.discount-code {
+    background-color: #fff;
+    font-weight: bold;
+    color: #888;
+    border-top: 0.3px dotted #888;
+    display: block;
+    margin: 10px auto;
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 30px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    padding: 12px;
+    flex-direction: column;
+    margin: 0 !important;
+}
+
+/* Header Styles */
+.discount-header {
+    margin-bottom: 10px;
+}
+
+.discount-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #43a047;
+    /* Verde destacado */
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.discount-subtitle {
+    font-size: 2.2;
+    font-weight: bold;
+    color: #555;
+    margin: 0;
+
+}
+
+/* Price Styles */
+.discount-price {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1c9b67; 
+}
+
+/* Footer Styles */
+.discount-footer {
+    background-color: #f7f9fc;
+    border-radius: 8px;
+}
+
+/* Code Section Styles */
+.barcode-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.code-label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #9DA4B0;
+}
+
+.code-value {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #9DA4B0;
+    margin: 0;
+}
+
+/* Button Styles */
+.discount-code-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #9DA4B0; 
+}
+
+/* Barcode Styles */
+.barcode {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 1px;
+}
