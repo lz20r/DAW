@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 05-02-2025 a las 14:23:07
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Servidor: localhost:3306
+-- Tiempo de generación: 08-02-2025 a las 00:45:56
+-- Versión del servidor: 8.0.30
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,21 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alumnos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
-  `apellidos` varchar(50) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `telefono` varchar(15) DEFAULT NULL,
-  `dni` varchar(20) DEFAULT NULL,
-  `password` varchar(255) NOT NULL
+  `id` int NOT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `apellidos` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefono` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `dni` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `alumnos`
---
-
-INSERT INTO `alumnos` (`id`, `nombre`, `apellidos`, `email`, `telefono`, `dni`, `password`) VALUES
-(3, 'Naiara', 'Lezameta', 'zhiyaonaiara@gmail.com', '638579630', '51248438E', '$2y$10$PW3u53fakrIwAcmIwgqoOee3PTZbZCTtoOsMbUdHmu1tAka/Kw4Gm');
 
 -- --------------------------------------------------------
 
@@ -51,16 +44,16 @@ INSERT INTO `alumnos` (`id`, `nombre`, `apellidos`, `email`, `telefono`, `dni`, 
 --
 
 CREATE TABLE `cursos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `duracion` int(11) DEFAULT NULL,
+  `id` int NOT NULL,
+  `nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `duracion` int DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
   `precio` decimal(10,2) DEFAULT NULL,
-  `descripcion` text DEFAULT NULL,
-  `asignaturas` enum('programación','ofimática','inteligencia artificial','big data') DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL,
-  `profesor_id` int(11) DEFAULT NULL
+  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `asignaturas` enum('programación','ofimática','inteligencia artificial','big data') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `foto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `profesor_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -70,10 +63,11 @@ CREATE TABLE `cursos` (
 --
 
 CREATE TABLE `inscripciones` (
-  `id` int(11) NOT NULL,
-  `alumno_id` int(11) DEFAULT NULL,
-  `curso_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL,
+  `alumno_id` int NOT NULL,
+  `profesor_id` int NOT NULL,
+  `fecha_inscripcion` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -82,14 +76,15 @@ CREATE TABLE `inscripciones` (
 --
 
 CREATE TABLE `profesores` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
-  `apellidos` varchar(50) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `telefono` varchar(15) DEFAULT NULL,
-  `precio_hora` decimal(10,2) DEFAULT NULL,
-  `localidad` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellidos` varchar(50) NOT NULL,
+  `telefono` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `precio_hora` decimal(10,2) NOT NULL,
+  `localidad` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Índices para tablas volcadas
@@ -115,13 +110,14 @@ ALTER TABLE `cursos`
 ALTER TABLE `inscripciones`
   ADD PRIMARY KEY (`id`),
   ADD KEY `alumno_id` (`alumno_id`),
-  ADD KEY `curso_id` (`curso_id`);
+  ADD KEY `profesor_id` (`profesor_id`);
 
 --
 -- Indices de la tabla `profesores`
 --
 ALTER TABLE `profesores`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -131,26 +127,19 @@ ALTER TABLE `profesores`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `profesores`
---
-ALTER TABLE `profesores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 --
 -- Restricciones para tablas volcadas
 --
@@ -165,8 +154,8 @@ ALTER TABLE `cursos`
 -- Filtros para la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`),
-  ADD CONSTRAINT `inscripciones_ibfk_2` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`);
+  ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `inscripciones_ibfk_2` FOREIGN KEY (`profesor_id`) REFERENCES `profesores` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
